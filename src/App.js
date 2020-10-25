@@ -71,7 +71,6 @@ class App extends Component {
     this.setState((state) => {
       const filteredData = Object.keys(data).filter((exp) => {
         for (const out in data[exp].outputs) {
-          console.log("comparison", exp + " "+ out + " " + String(data[exp].outputs[out])+" "+ String(state.filterRanges[out].min) +"-"+ String(state.filterRanges[out].max));
           if (data[exp].outputs[out] < state.filterRanges[out].min) {
             return false;
           }
@@ -81,7 +80,6 @@ class App extends Component {
         }
         return true;
       })
-      console.log("filtered data", filteredData);
       return{filteredData}
     });
     
